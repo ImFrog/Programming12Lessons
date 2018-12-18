@@ -11,7 +11,12 @@ public class Triangle extends Shape {
         this.slantHeight = slantHeight;
     }
 
-    public int area() {
-        return (width*getHeight())/2;
+    public double area() {
+        return (getWidth()*getHeight())/2;
+    }
+
+    @Override
+    public String toString() {
+        return null;
     }
 }

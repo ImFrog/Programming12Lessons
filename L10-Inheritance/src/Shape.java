@@ -1,7 +1,7 @@
-public class Shape {
-    protected int width;
+public abstract class Shape {
+    private int width;
     private int height;
-    public String color;
+    private String color;
 
     public Shape() {
         width = 1;
@@ -39,7 +39,7 @@ public class Shape {
         this.color = color;
     }
 
-    public int area() {
-        return width * height;
-    }
+    public abstract double area();
+
+    public abstract String toString();
 }
