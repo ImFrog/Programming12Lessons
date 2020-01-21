@@ -2,6 +2,8 @@ import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
+import java.io.IOException;
+
 public class ClientProgram {
     //Our client object.
     private static Client client;
@@ -10,17 +12,21 @@ public class ClientProgram {
     //A boolean value.
     static boolean messageReceived = false;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Connecting to the server...");
 
         //Start the client and connect
         client = new Client();
         client.start(); //The client MUST be started before connecting can take place.
+
+        //Register classes
+        Network.register(client); //Must register before connecting to connect multiple times
+
         //Connect to the server - wait 5000ms before failing.
         client.connect(5000, ip, Network.port);
 
-        //Register classes
-        Network.register(client);
+
+
 
         //Add a listener
         client.addListener(new Listener() {

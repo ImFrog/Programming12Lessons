@@ -2,13 +2,14 @@ import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
 
+import java.io.IOException;
 import java.util.Date;
 
 public class ServerProgram {
     //Server object
     static Server server;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         System.out.println("Creating Server");
 
         //Start server on these ports
